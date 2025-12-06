@@ -9,8 +9,6 @@ fn main() {
         return;
     };
 
-    println!("{}", day);
-
     match day{
         1=>day1::solu1(),
         _=>println!("Idiot!"),
