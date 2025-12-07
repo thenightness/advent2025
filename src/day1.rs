@@ -7,20 +7,31 @@ pub fn solu1() {
         let direction = iter.next().unwrap();
         let turn: i32 = iter.collect::<String>().parse().unwrap();
 
-        match direction {
-            'L' => safe -= turn,
-            'R' => safe += turn,
-            _ => println!("Invalid direction"),
+        println!("- - - - - - - - - {} {} {} {}", direction, turn, safe, count);
+
+        if direction == 'L' {
+            for i in 0..turn {
+                safe -= 1;
+                if safe == 0 {
+                    count += 1;
+                    println!("Safe hit zero! Count: {} {}", count, i+1);
+                }
+                if safe == -1 {
+                    safe = 99;
+                }
+            }
+            } else  {
+                for i in 0..turn {
+                safe += 1;
+                if safe == 100 {
+                    safe = 0;
+                }
+                if safe == 0 {
+                    count += 1;
+                    println!("Safe hit zero! Count: {} {}", count, i+1);
+                }
+            }
         }
-        while safe < 0 {
-            safe += 100;
-        }while safe >= 100 {
-            safe -= 100;
-        }
-        if safe == 0 {
-            count += 1;
-        }
-        println!("{} {} {} {}", direction, turn, safe, count);
     }
     println!("Total times safe was zero: {}", count);
 }
