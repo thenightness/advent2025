@@ -1,4 +1,4 @@
-pub fn solu1() {
+pub fn solu() {
     let mut safe = 50;
     let mut count = 0;
     let data: String = std::fs::read_to_string("src/data/day1data").expect("Unable to read file");
